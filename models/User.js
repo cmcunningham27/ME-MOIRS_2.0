@@ -18,5 +18,13 @@ User.init(
                 len: [3, 20],
             },
         },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+            validate: {
+                isEmail: true,
+            },
+        },
     }
 )
