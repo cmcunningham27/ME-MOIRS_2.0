@@ -11,5 +11,17 @@ Role.init(
             primaryKey: true,
             autoIncrement: true,
         },
+        name: {
+            type: DataTypes.STRING
+        },
+    },
+    {
+        sequelize,
+        timestamp: false,
+        freezeTableName: true,
+        modelName: 'role',
+        underscored: true,
     }
-)
+);
+
+module.exports = Role;
