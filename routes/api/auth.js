@@ -10,7 +10,7 @@ router.use((req, res, next) => {
     next();
 }) ;
 
-router,route('/signup')
+router.route('/signup')
     .post(
         [
             verifySignup.checkDuplicateUsernameOrEmail,
