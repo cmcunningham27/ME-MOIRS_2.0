@@ -6,3 +6,13 @@ Role.belongsToMany(User, {
     foreignKey: 'roleId',
     otherKey: 'userId'
 });
+
+User.belongsToMany(Role, {
+    through: 'user_roles',
+    foreignKey: 'userId',
+    otherKey: 'roleId'
+});
+
+ROLES = ['user', 'admin', 'moderator'];
+
+module.exports = [ User, Role, ROLES ]
