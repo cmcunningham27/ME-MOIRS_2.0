@@ -14,6 +14,10 @@ export default function Login() {
         setPassword(e.target.value);
     };
 
+    const loginUser = (e) => {
+        e.preventDefault();
+    };
+
     return (
         <div className='col-md-3 position-absolute top-50 start-50 translate-middle'>
             <div className='card card-container p-4'>
