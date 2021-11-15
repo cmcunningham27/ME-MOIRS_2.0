@@ -79,3 +79,12 @@ isModeratorOdAdmin = (req, res, next) => {
         });
     });
 };
+
+const authJwt = {
+    verifyToken: verifyToken,
+    isAdmin: isAdmin,
+    isModerator: isModerator,
+    isModeratorOdAdmin: isModeratorOdAdmin
+};
+
+module.exports = authJwt;
