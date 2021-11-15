@@ -10,6 +10,13 @@ User.init(
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
-        }
+        },
+        username: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [3, 20],
+            },
+        },
     }
 )
