@@ -31,3 +31,18 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
         });
     });
 };
+
+checkRolesExisted = (req, res, next) => {
+    if (req.body.roles) {
+        for (let i = 0; i < roles.length; i++) {
+            if (!ROLES.includes(req.body.roles[i])) {
+                res.status(400).send({
+                    message: 'Failed! Role does not exist = ' + role.req.roles[i]
+                });
+                return;
+            }
+        }
+    }
+
+    next();
+};
