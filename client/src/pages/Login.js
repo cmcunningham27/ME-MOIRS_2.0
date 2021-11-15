@@ -6,6 +6,14 @@ export default function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+    const onChangeUsername = (e) => {
+        setUsername(e.tagert.value);
+    };
+
+    const onChangePassword = (e) => {
+        setPassword(e.target.value);
+    };
+
     return (
         <div className='col-md-3 position-absolute top-50 start-50 translate-middle'>
             <div className='card card-container p-4'>
@@ -18,6 +26,7 @@ export default function Login() {
                             name='username'
                             value={username}
                             minLength='3'
+                            onChange={onChangeUsername}
                             required aria-required='true'
                         />
                     </div>
@@ -30,6 +39,7 @@ export default function Login() {
                             name='password'
                             value={password}
                             minLength='8'
+                            onChange={onChangePassword}
                             required aria-required='true'
                         />
                     </div>
