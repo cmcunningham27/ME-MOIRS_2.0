@@ -17,11 +17,11 @@ router.route('/user')
     .get([authJwt.verifyToken], controller.userBoard);
 
 router.route('/mod')
-    .get([authJwt.verifyToken, authJwt.isModerator],
+    .get([authJwt.verifyToken],
         controller.moderatorBoard);
 
 router.route('/admin')
-        .get([authJwt.verifyToken, authJwt.isAdmin],
+        .get([authJwt.verifyToken],
             controller.adminBoard);
 
 module.exports = router;

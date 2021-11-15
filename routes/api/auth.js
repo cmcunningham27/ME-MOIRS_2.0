@@ -14,7 +14,7 @@ router.route('/signup')
     .post(
         [
             verifySignup.checkDuplicateUsernameOrEmail,
-            verifySignup.checkRolesExisted
+            // verifySignup.checkRolesExisted
         ],
         controller.signup
     );
