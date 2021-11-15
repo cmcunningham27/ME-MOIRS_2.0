@@ -15,4 +15,4 @@ User.belongsToMany(Role, {
 
 ROLES = ['user', 'admin', 'moderator'];
 
-module.exports = [ User, Role, ROLES ]
+module.exports = { User, Role, ROLES }
