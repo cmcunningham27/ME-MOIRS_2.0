@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import login from '../util/authAPI';
 
 
 export default function Login() {
@@ -7,7 +8,7 @@ export default function Login() {
     const [password, setPassword] = useState('');
 
     const onChangeUsername = (e) => {
-        setUsername(e.tagert.value);
+        setUsername(e.target.value);
     };
 
     const onChangePassword = (e) => {
@@ -16,6 +17,15 @@ export default function Login() {
 
     const loginUser = (e) => {
         e.preventDefault();
+
+        login({
+            username: username,
+            password: password
+        }).then((res) => {
+            console.log(res);
+        }).catch(err => {
+            console.log(err);
+        });
     };
 
     return (
@@ -26,7 +36,7 @@ export default function Login() {
                         <label className='mb-2' htmlFor='username'>Username</label>
                         <input
                             type='text'
-                            classNAme='form-control'
+                            className='form-control'
                             name='username'
                             value={username}
                             minLength='3'

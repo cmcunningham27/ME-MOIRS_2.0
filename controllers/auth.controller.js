@@ -40,11 +40,13 @@ module.exports = {
     },
 
     signin: function(req, res) {
+        console.log('is it here yet?', req.body);
         User.findOne({
             where: {
                 username: req.body.username
             }
         }).then(user => {
+            console.log(user, 'user data');
             if (!user) {
                 return res.status(404).send({ message: 'User not found!' });
             }

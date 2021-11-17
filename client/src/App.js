@@ -3,6 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+import Nav from './components/nav';
+import Login from './pages/Login';
+
 function App() {
   return (
     <div className="App">
