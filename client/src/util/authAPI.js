@@ -12,12 +12,17 @@ const login = async (userData) => {
     return res.data;
 };
 
+const logout = () => {
+    localStorage.removeItem('user');
+};
+
 const getCurrentUser = () => {
     return JSON.parse(localStorage.getItem('user'));
-}
+};
 
 const authAPI = {
     login: login,
+    logout: logout,
     getCurrentUser: getCurrentUser
 };
 
