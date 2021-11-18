@@ -4,7 +4,7 @@ export default function Profile() {
 
     return (
         <div>
-            <p></p>
+            <p>You made it to the profile page!</p>
         </div>
     )
 }

@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import login from '../util/authAPI';
 import UserContext from '../util/userContext';
 
 
 export default function Login() {
+    const navigate = useNavigate();
 
     const { username, setUsername, password, setPassword } = useContext(UserContext);
 
@@ -23,6 +24,7 @@ export default function Login() {
             username: username,
             password: password
         }).then((res) => {
+            // navigate('/profile');
             console.log(res);
         }).catch(err => {
             console.log(err);

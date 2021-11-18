@@ -79,7 +79,7 @@ module.exports = {
                     username: user.username,
                     email: user.email,
                     // roles: authorities,
-                    acessToken: token
+                    accessToken: token
                 });
             // });
         }).catch(err => {
