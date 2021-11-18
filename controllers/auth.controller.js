@@ -48,6 +48,7 @@ module.exports = {
         }).then(user => {
             console.log(user, 'user data');
             if (!user) {
+                console.log('User not found!');
                 return res.status(404).send({ message: 'User not found!' });
             }
 
@@ -57,6 +58,7 @@ module.exports = {
             );
 
             if (!passwordIsValid) {
+                console.log('Invalid password!');
                 return res.status(401).send({
                     accessToken: null,
                     message: 'Invalid password!'

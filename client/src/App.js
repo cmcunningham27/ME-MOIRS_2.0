@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -6,15 +6,23 @@ import './App.css';
 import Nav from './components/nav';
 import Login from './pages/Login';
 
-function App() {
-  return (
-    <div className="App">
-      <Nav />
+import UserContext from './util/userContext';
 
-      <Routes>
-        <Route exact path='/' element={<Login />}></Route>
-      </Routes>
-    </div>
+function App() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  // const [userData, setUserData] = useState({});
+
+  return (
+    <UserContext.Provider value={{ username, setUsername, password, setPassword }}>
+      <div className="App">
+        <Nav />
+
+        <Routes>
+          <Route exact path='/' element={<Login />}></Route>
+        </Routes>
+      </div>
+    </UserContext.Provider>
   );
 }
 

@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import login from '../util/authAPI';
+import UserContext from '../util/userContext';
 
 
 export default function Login() {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+
+    const { username, setUsername, password, setPassword } = useContext(UserContext);
 
     const onChangeUsername = (e) => {
         setUsername(e.target.value);
