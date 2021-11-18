@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import login from '../util/authAPI';
+import authAPI from '../util/authAPI';
 import UserContext from '../util/userContext';
 
 
@@ -20,7 +20,7 @@ export default function Login() {
     const loginUser = (e) => {
         e.preventDefault();
 
-        login({
+        authAPI.login({
             username: username,
             password: password
         }).then((res) => {

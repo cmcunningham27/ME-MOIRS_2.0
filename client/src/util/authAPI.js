@@ -12,4 +12,13 @@ const login = async (userData) => {
     return res.data;
 };
 
-export default login;
+const getCurrentUser = () => {
+    return localStorage.getItem('user');
+}
+
+const authAPI = {
+    login: login,
+    getCurrentUser: getCurrentUser
+};
+
+export default authAPI;
