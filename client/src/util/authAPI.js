@@ -13,7 +13,7 @@ const login = async (userData) => {
 };
 
 const getCurrentUser = () => {
-    return localStorage.getItem('user');
+    return JSON.parse(localStorage.getItem('user'));
 }
 
 const authAPI = {

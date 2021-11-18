@@ -1,10 +1,13 @@
 import React from 'react';
+import authAPI from '../util/authAPI';
+
 
 export default function Profile() {
+    const currentUser = authAPI.getCurrentUser();
 
     return (
         <div>
-            <p>You made it to the profile page!</p>
+            <p>Welcome {currentUser.username}!</p>
         </div>
     )
-}
+};

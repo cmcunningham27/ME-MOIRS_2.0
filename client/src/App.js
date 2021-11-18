@@ -12,10 +12,10 @@ import UserContext from './util/userContext';
 function App() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  // const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState({});
 
   return (
-    <UserContext.Provider value={{ username, setUsername, password, setPassword }}>
+    <UserContext.Provider value={{ username, setUsername, password, setPassword, userData, setUserData }}>
       <div className="App">
         <Nav />
 

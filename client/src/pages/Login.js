@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import authAPI from '../util/authAPI';
 import UserContext from '../util/userContext';
+import authHeader from '../util/auth-header';
 
 
 export default function Login() {
@@ -24,8 +25,11 @@ export default function Login() {
             username: username,
             password: password
         }).then((res) => {
-            // navigate('/profile');
-            console.log(res);
+            if (authHeader()) {
+               navigate('/profile'); 
+            };
+            
+            // console.log(res);
         }).catch(err => {
             console.log(err);
         });
