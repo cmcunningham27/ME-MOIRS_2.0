@@ -42,17 +42,41 @@ export default function Signup() {
             <div className='card card-container p=4'>
                 <form onSubmit={signupUser}>
                     <div className='form-group m-3'>
-                        <label className='mb-2' htmlFor='username'>
-                            <input
-                                type='text'
-                                className='form-control'
-                                name='username'
-                                value={username}
-                                minLength='3'
-                                onChange={onChangeUsername}
-                                required aria-required='true'
-                            />
-                        </label>
+                        <label className='mb-2' htmlFor='username'>Username</label>
+                        <input
+                            type='text'
+                            className='form-control'
+                            name='username'
+                            value={user.username}
+                            minLength='3'
+                            onChange={onChangeUsername}
+                            required aria-required='true'
+                        />
+                    </div>
+
+                    <div className='form-group m-3'>
+                        <label className='mb-2' htmlFor='email'>Email</label>
+                        <input
+                            type='email'
+                            className='form-control'
+                            name='email'
+                            value={user.email}
+                            onChange={onChangeEmail}
+                            required aria-required='true'
+                        />
+                    </div>
+
+                    <div className='form-group m-3'>
+                        <label className='mb-2' htmlFor='password'>Password</label>
+                        <input
+                            type='password'
+                            className='form-control'
+                            name='password'
+                            value={user.password}
+                            minLength='8'
+                            onChange={onChangePassword}
+                            required aria-required='true'
+                        />
                     </div>
                 </form>
             </div>

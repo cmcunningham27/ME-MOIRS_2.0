@@ -5,6 +5,7 @@ import './App.css';
 
 import Nav from './components/nav';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 import Profile from './pages/Profile';
 
 import UserContext from './util/userContext';
@@ -20,8 +21,9 @@ function App() {
         <Nav />
 
         <Routes>
-          <Route exact path='/' element={<Login />}></Route>
-          <Route exact path='/profile' element={<Profile />}></Route>
+          <Route exact path='/' element={<Login />} />
+          <Route exact path='/signup' element={<Signup />} />
+          <Route exact path='/profile' element={<Profile />} />
         </Routes>
       </div>
     </UserContext.Provider>
