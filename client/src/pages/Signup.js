@@ -20,4 +20,20 @@ export default function Signup() {
     const onChangeEmail = (e) => {
         user.setEmail(e.target.value);
     };
+
+    const signupUser = (e) => {
+        e.preventDefault();
+
+        authAPI.signup({
+            username: user.username,
+            password: user.password,
+            email: user.email
+        }).then(res => {
+            if (authHeader()) {
+                navigate('/login');
+            };
+        }).catch(err => {
+            console.log(err);
+        });
+    }
 };
