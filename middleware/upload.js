@@ -8,3 +8,15 @@ const imageFilter = (req, file, cb) => {
         cb('Please upload only images.', false);
     }
 };
+
+let storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, __basedir + '/assets/uploads/');
+    },
+    filename: (req, file, cb) => {
+        cb(null, `${Date.now()}-${file.originalname}`);
+    },
+});
+
+let uploadFile = multer({ storage: storage, fileFilter: imageFilter });
+module.exports = uploadFile;
