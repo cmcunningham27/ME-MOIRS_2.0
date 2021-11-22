@@ -36,7 +36,7 @@ export default function Login() {
     };
 
     return (
-        <div className='col-md-3 position-absolute top-50 start-50 translate-middle'>
+        <div className='shadow col-md-3 position-absolute top-50 start-50 translate-middle'>
             <div className='card card-container p-4'>
                 <form onSubmit={loginUser}>
                     <div className='form-group m-3'>

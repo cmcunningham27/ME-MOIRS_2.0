@@ -30,7 +30,7 @@ export default function Signup() {
             email: user.email
         }).then(res => {
             if (authHeader()) {
-                navigate('/login');
+                navigate('/');
             };
         }).catch(err => {
             console.log(err);
@@ -38,7 +38,7 @@ export default function Signup() {
     };
 
     return (
-        <div className='col-md-3 position-absolute top-50 start-50 translate-middle'>
+        <div className='shadow col-md-3 position-absolute top-50 start-50 translate-middle'>
             <div className='card card-container p-4'>
                 <form onSubmit={signupUser}>
                     <div className='form-group m-3'>
@@ -57,7 +57,8 @@ export default function Signup() {
                     <div className='form-group m-3'>
                         <label className='mb-3' htmlFor='email'>Email</label>
                         <input
-                            type='email'
+                            // type='email'
+                            pattern='^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$'
                             className='form-control'
                             name='email'
                             value={user.email}
