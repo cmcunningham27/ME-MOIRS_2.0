@@ -3,8 +3,8 @@ import axios from 'axios';
 const API_URL = 'http://localhost:3001/api/auth';
 
 const signup = (userData) => {
-    return axios.post(API_URL + '/signup', userData)
-}
+    return axios.post(API_URL + '/signup', userData);
+};
 
 const login = async (userData) => {
     const res = await axios.post(API_URL + '/signin', userData);
@@ -25,6 +25,7 @@ const getCurrentUser = () => {
 };
 
 const authAPI = {
+    signup: signup,
     login: login,
     logout: logout,
     getCurrentUser: getCurrentUser

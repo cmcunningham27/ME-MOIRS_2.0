@@ -39,10 +39,10 @@ export default function Signup() {
 
     return (
         <div className='col-md-3 position-absolute top-50 start-50 translate-middle'>
-            <div className='card card-container p=4'>
+            <div className='card card-container p-4'>
                 <form onSubmit={signupUser}>
                     <div className='form-group m-3'>
-                        <label className='mb-2' htmlFor='username'>Username</label>
+                        <label className='mb-3' htmlFor='username'>Username</label>
                         <input
                             type='text'
                             className='form-control'
@@ -55,7 +55,7 @@ export default function Signup() {
                     </div>
 
                     <div className='form-group m-3'>
-                        <label className='mb-2' htmlFor='email'>Email</label>
+                        <label className='mb-3' htmlFor='email'>Email</label>
                         <input
                             type='email'
                             className='form-control'
@@ -67,7 +67,7 @@ export default function Signup() {
                     </div>
 
                     <div className='form-group m-3'>
-                        <label className='mb-2' htmlFor='password'>Password</label>
+                        <label className='mb-3' htmlFor='password'>Password</label>
                         <input
                             type='password'
                             className='form-control'
@@ -78,6 +78,11 @@ export default function Signup() {
                             required aria-required='true'
                         />
                     </div>
+
+                    <button className='btn btn-primary btn-block'>Signup</button>
+                    <p>
+                        Already have an account? <Link to={'/'}>Login</Link>
+                    </p>
                 </form>
             </div>
         </div>
