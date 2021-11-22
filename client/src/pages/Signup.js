@@ -35,5 +35,27 @@ export default function Signup() {
         }).catch(err => {
             console.log(err);
         });
-    }
+    };
+
+    return (
+        <div className='col-md-3 position-absolute top-50 start-50 translate-middle'>
+            <div className='card card-container p=4'>
+                <form onSubmit={signupUser}>
+                    <div className='form-group m-3'>
+                        <label className='mb-2' htmlFor='username'>
+                            <input
+                                type='text'
+                                className='form-control'
+                                name='username'
+                                value={username}
+                                minLength='3'
+                                onChange={onChangeUsername}
+                                required aria-required='true'
+                            />
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    )
 };
