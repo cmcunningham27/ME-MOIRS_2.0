@@ -1,3 +1,12 @@
+const router = require('express').Router();
+const upload = require('../../middleware/upload');
+const controller = require('../../controllers/upload.controller');
+
+router.route('/upload')
+    .post(upload.single('file'), controller.uploadFiles);
+
+module.exports = router;
+
 // const router = require('express').Router();
 // const { authJwt } = require('../../middleware');
 // const controller = require('../../controllers/user.controller');

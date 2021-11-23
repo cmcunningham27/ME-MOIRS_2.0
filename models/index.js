@@ -1,5 +1,11 @@
 const User = require('./User');
 const Role = require('./Role');
+const Image = require('./Image');
+
+User.hasMany(Image, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+});
 
 Role.belongsToMany(User, {
     through: 'user_roles',
@@ -15,4 +21,4 @@ User.belongsToMany(Role, {
 
 ROLES = ['user', 'admin', 'moderator'];
 
-module.exports = { User, Role, ROLES }
+module.exports = { User, Role, ROLES, Image }

@@ -6,33 +6,31 @@ const Image = db.Image;
 module.exports = {
     uploadFiles: async function(req, res) {
         try {
-            console.log(req.file);
+            console.log(req.file, 'file info');
 
             if (req.file == undefined) {
                 return res.send('You must select a file.');
-            }
+            };
 
             // save Image object in database
             Image.create({
                 type: req.file.mimetype,
                 name: req.file.originalname,
                 data: fs.readFileSync(
-                    __basedir + '/assets/uploads/' + req.file.filename
+                    req.file.destination + req.file.filename
                 ),
             // if successful write data to tmp folder
             }).then(image => {
                 fs.writeFileSync(
-                    __basedir + '/assets/tmp/' + image.name,
+                    './assets/tmp/' + image.name,
                     image.data
                 );
 
-                return res.send('File has been uploaded.');
+                return res.redirect('http://localhost:3000/profile');
             });
         } catch (err) {
-            console.log(err);
+            console.log(err, 'err');
             return res.send(`Error when trying upload images: ${err}`);
         }
     }
 };
-
-module.exports = uploadFiles;

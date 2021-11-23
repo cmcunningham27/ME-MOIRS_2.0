@@ -15,7 +15,7 @@ module.exports = {
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 10)
         }).then(user => {
-            console.log(req.body.roles, 'roles');
+            // console.log(req.body.roles, 'roles');
             res.status(200).send({ message: 'User was registered successfully!' });
             // if (req.body.roles) {
             //     Role.findAll({
@@ -40,13 +40,11 @@ module.exports = {
     },
 
     signin: function(req, res) {
-        console.log('is it here yet?', req.body);
         User.findOne({
             where: {
                 username: req.body.username
             }
         }).then(user => {
-            console.log(user, 'user data');
             if (!user) {
                 console.log('User not found!');
                 return res.status(404).send({ message: 'User not found!' });
