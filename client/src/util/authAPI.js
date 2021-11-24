@@ -29,12 +29,17 @@ const upload = (data, config) => {
     return axios.post(API_URL + '/user/upload', data, config)
 }
 
+const user = (data) => {
+    return axios.get(API_URL + '/user/' + data)
+}
+
 const authAPI = {
     signup: signup,
     login: login,
     logout: logout,
     getCurrentUser: getCurrentUser,
-    upload: upload
+    upload: upload,
+    user: user
 };
 
 export default authAPI;

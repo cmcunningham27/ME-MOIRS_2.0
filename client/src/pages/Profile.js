@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import authAPI from '../util/authAPI';
 import addImage from '../assets/images/add-image.png';
 
@@ -11,6 +11,12 @@ export default function Profile() {
     console.log(currentUser);
 
     const url = `http://localhost:3001/api/user/upload/${currentUser.id}`;
+
+    useEffect(() => {
+        authAPI.user(currentUser.id).then(res => {
+            console.log(res, 'userInfo response');
+        })
+    });
 
     const addButton = () => {
         if (showForm === false) {
