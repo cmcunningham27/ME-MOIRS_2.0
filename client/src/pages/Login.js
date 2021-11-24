@@ -8,22 +8,22 @@ import authHeader from '../util/auth-header';
 export default function Login() {
     const navigate = useNavigate();
 
-    const { username, setUsername, password, setPassword } = useContext(UserContext);
+    const user = useContext(UserContext);
 
     const onChangeUsername = (e) => {
-        setUsername(e.target.value);
+        user.setUsername(e.target.value);
     };
 
     const onChangePassword = (e) => {
-        setPassword(e.target.value);
+        user.setPassword(e.target.value);
     };
 
     const loginUser = (e) => {
         e.preventDefault();
 
         authAPI.login({
-            username: username,
-            password: password
+            username: user.username,
+            password: user.password
         }).then((res) => {
             if (authHeader()) {
                navigate('/profile'); 
@@ -45,7 +45,7 @@ export default function Login() {
                             type='text'
                             className='form-control'
                             name='username'
-                            value={username}
+                            value={user.username}
                             minLength='3'
                             onChange={onChangeUsername}
                             required aria-required='true'
@@ -58,7 +58,7 @@ export default function Login() {
                             type='password'
                             className='form-control'
                             name='password'
-                            value={password}
+                            value={user.password}
                             minLength='8'
                             onChange={onChangePassword}
                             required aria-required='true'

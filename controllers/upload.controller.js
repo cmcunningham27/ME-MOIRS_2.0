@@ -5,8 +5,9 @@ const Image = db.Image;
 
 module.exports = {
     uploadFiles: async function(req, res) {
+        console.log(req.params.id, 'is the id here?');
         try {
-            console.log(req.file, 'file info');
+            console.log(req.file);
 
             if (req.file == undefined) {
                 return res.send('You must select a file.');
@@ -19,6 +20,7 @@ module.exports = {
                 data: fs.readFileSync(
                     req.file.destination + req.file.filename
                 ),
+                user_id: req.params.id,
             // if successful write data to tmp folder
             }).then(image => {
                 fs.writeFileSync(

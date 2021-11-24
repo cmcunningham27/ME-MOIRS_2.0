@@ -8,6 +8,9 @@ export default function Profile() {
     // const [image, setImage] = useState({});
 
     const currentUser = authAPI.getCurrentUser();
+    console.log(currentUser);
+
+    const url = `http://localhost:3001/api/user/upload/${currentUser.id}`;
 
     const addButton = () => {
         if (showForm === false) {
@@ -44,7 +47,7 @@ export default function Profile() {
         return (
             <form 
                 className='imageForm p-2 position-absolute bg-light'
-                action='http://localhost:3001/api/user/upload'
+                action={url}
                 method='POST'
                 encType='multipart/form-data'
                 // onSubmit={imageUpload}
