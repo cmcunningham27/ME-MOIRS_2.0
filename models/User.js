@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, STRING } = require('sequelize');
 const sequelize = require('../config/db.config');
 
 class User extends Model {};
@@ -34,6 +34,9 @@ User.init(
                 len: [8],
             },
         },
+        coverData: {
+            type: DataTypes.STRING,
+        } 
     },
     {
         sequelize,

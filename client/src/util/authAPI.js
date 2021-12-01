@@ -24,9 +24,14 @@ const getCurrentUser = () => {
     return JSON.parse(localStorage.getItem('user'));
 };
 
-const upload = (data, config) => {
-    console.log('here', data);
-    return axios.post(API_URL + '/user/upload', data, config)
+const addCover = (id, data) => {
+    console.log(id, data);
+    return axios.put(API_URL + '/auth/cover/' + id, {coverData: data})
+};
+
+const getUser = (id) => {
+    console.log(id, 'is it here')
+    return axios.get(API_URL + '/auth/user/' + id);
 }
 
 const user = (data) => {
@@ -38,7 +43,8 @@ const authAPI = {
     login: login,
     logout: logout,
     getCurrentUser: getCurrentUser,
-    upload: upload,
+    addCover: addCover,
+    getUser: getUser,
     user: user
 };
 

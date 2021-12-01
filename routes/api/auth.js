@@ -22,4 +22,10 @@ router.route('/signup')
 router.route('/signin')
         .post(controller.signin);
 
+router.route('/cover/:id')
+        .put(controller.coverData);
+
+router.route('/user/:id')
+        .get(controller.getUser);
+
 module.exports = router;

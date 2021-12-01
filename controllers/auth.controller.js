@@ -76,12 +76,35 @@ module.exports = {
                     id: user.id,
                     username: user.username,
                     email: user.email,
-                    // roles: authorities,
+                    coverData: user.coverData,
                     accessToken: token
                 });
             // });
         }).catch(err => {
             res.status(500).send({ message: err.message });
         });
-    }
+    },
+
+    coverData: function (req, res) {
+        console.log(req.body.coverData, req.params.id, 'body');
+        User.update(
+            {coverData: req.body.coverData},
+            {where: {id: req.params.id}}
+        )
+        .then(rowsUpdated => {
+            res.json(rowsUpdated)
+        })
+        .catch(err => res.json(err));
+    },
+
+    getUser: function (req, res) {
+        console.log(req.params.id, 'is it here now?')
+        User.findOne({
+            where: {id: req.params.id}
+        })
+        .then(user => {
+            res.send(user);
+        })
+        .catch(err => console.log(err));
+    },
 };

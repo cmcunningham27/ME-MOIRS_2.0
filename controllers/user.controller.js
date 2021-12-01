@@ -4,18 +4,17 @@ module.exports = {
     getUserInfo: function(req, res) {
         console.log(req.params.id, 'is it here')
         User.findByPk(req.params.id, {
-            include: {
+            include: [{
                 model: Image,
                 where: {
                     user_id: req.params.id
                 }
-            }
+            }]
         }).then(user => {
-            console.log(user, 'did it get to here or is it just error')
-            res.statu(200).send(user);
+            res.status(200).send(user);
         }).catch (err => {
             res.status(500).send({ message: err.message });
-        })
+        });
     }
 };
 

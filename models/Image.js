@@ -18,7 +18,7 @@ Image.init(
             type: DataTypes.STRING
         },
         data: {
-            type: DataTypes.BLOB('long'),
+            type: DataTypes.STRING,
             allowNull: false
         }
     },
