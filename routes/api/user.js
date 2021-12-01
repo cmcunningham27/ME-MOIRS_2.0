@@ -6,8 +6,6 @@ const userController = require('../../controllers/user.controller');
 router.route('/:id')
     .get(userController.getUserInfo)
 
-router.route('/upload/:id')
-    .post(upload.single('file'), controller.uploadFiles);
 
 module.exports = router;
 
