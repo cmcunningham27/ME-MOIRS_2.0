@@ -1,6 +1,5 @@
 const User = require('./User');
 const Role = require('./Role');
-const Image = require('./Image');
 
 // Role.belongsToMany(User, {
 //     through: 'user_roles',
@@ -14,15 +13,15 @@ const Image = require('./Image');
 //     otherKey: 'roleId'
 // });
 
-User.hasMany(Image, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE'
-});
+// User.hasMany(Image, {
+//     foreignKey: 'user_id',
+//     onDelete: 'CASCADE'
+// });
 
-Image.belongsTo(User), {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE'
-};
+// Image.belongsTo(User), {
+//     foreignKey: 'user_id',
+//     onDelete: 'CASCADE'
+// };
 
 // ROLES = ['user', 'admin', 'moderator'];
 // ROLES, Role,
